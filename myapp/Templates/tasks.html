@@ -1,0 +1,13 @@
+<h1>Tasks</h1>
+<p>¿Cómo funciona render?
+Cargar la plantilla: Django busca el archivo de plantilla (template_name) en los directorios configurados en TEMPLATES en el archivo de configuración (settings.py).
+Procesar la plantilla: Django procesa la plantilla usando el contexto que le proporcionaste. Las variables que aparecen en el contexto  son reemplazadas por sus valores.Generar la respuesta: Una vez procesada la plantilla, Django genera una respuesta HTTP con el contenido HTML resultante y la envía de vuelta al navegador del usuario.
+</p>
+
+{% comment %} Tasks {% endcomment %}
+
+{% for task in tasks%}
+    <div>
+    <h2>{{task.title}}</h2>
+    </div>  
+{% endfor %}
