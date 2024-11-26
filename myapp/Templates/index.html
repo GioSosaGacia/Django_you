@@ -1,3 +1,7 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +9,7 @@
     <title>Index.html</title>
 </head>
 <body>
+    
     <h1>{{title}}</h1>
     <p>¿Cómo funciona render?
         Cargar la plantilla: Django busca el archivo de plantilla (template_name) en los directorios configurados en TEMPLATES en el archivo de configuración (settings.py).
@@ -12,3 +17,5 @@
     </p>
 </body>
 </html>
+
+{% endblock %}

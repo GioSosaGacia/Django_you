@@ -1,3 +1,7 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+
 <h1>Tasks</h1>
 <p>¿Cómo funciona render?
 Cargar la plantilla: Django busca el archivo de plantilla (template_name) en los directorios configurados en TEMPLATES en el archivo de configuración (settings.py).
@@ -27,3 +31,5 @@ Procesar la plantilla: Django procesa la plantilla usando el contexto que le pro
     </div>
     </div>  
 {% endfor %}
+
+{% endblock %}

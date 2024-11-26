@@ -1,3 +1,7 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+
 <h1>Hola desde el tamplade de About con Django</h1>
 <p>¿Cómo funciona render?
     Cargar la plantilla: Django busca el archivo de plantilla (template_name) en los directorios configurados en TEMPLATES en el archivo de configuración (settings.py).
@@ -5,3 +9,5 @@
 </p>
 
 <p>Este documento fue creado por: <strong>{{username}}</strong></p>
+
+{% endblock %}
