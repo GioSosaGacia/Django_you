@@ -8,6 +8,22 @@ Procesar la plantilla: Django procesa la plantilla usando el contexto que le pro
 
 {% for task in tasks%}
     <div>
-    <h2>{{task.title}}</h2>
+{% comment %} En Django, {%%} se utiliza para delimitar etiquetas de plantilla (template tags) esto es jinga  {% endcomment %}
+    <h2>{% if task.done == False %} ⌚ {% else %} 🆗 {% endif %} {{task.title}}</h2>
+    
+    <!-- el codigo qye esta en el h2 sustituye a este fragmento
+    {% if task.done == False %}
+    <p>Tarea pendiente</p>
+    {% else %}
+    <p>Tarea realizada</p>
+    {% endif %}-->
+
+
+    <p>{{task.description}}</p>
+    <p><strong>Project:</strong> {{task.project.name}}</p>
+    <div>
+        <button>Delete</button>
+        <button>🆗 Done</button>
+    </div>
     </div>  
 {% endfor %}

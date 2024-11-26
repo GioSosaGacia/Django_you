@@ -21,6 +21,8 @@ class Task(models.Model):
     description = models.TextField()
     #con la eliminacion en cascada si deseamos eliminar un proyecto lo eliminara y si el mismo esta relacionado a + proyectos o raeas eliminara todo lo relacionado a tal projecto
     project = models.ForeignKey(Project, on_delete=models.CASCADE) 
+    #podemos agregar mas campos a la table solo de debe de hacer el makemigrations y migrate
+    done = models.BooleanField(default=False)
     
     def __str__(self):
          return self.title + '-' + self.project.name

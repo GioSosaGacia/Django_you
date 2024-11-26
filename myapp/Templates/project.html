@@ -9,5 +9,9 @@
 {% comment %} lOOPS, RECORRER ELEMENTOS CON UN FOR,project es la varible que creamos para el for e in projects es la variable creada del views.py en el apartado del render     {% endcomment %}
 {% for project in projects %}
 <h2>{{project.name}}
+<div>
+    <button>Delete</button>
+    <button>Update</button>
+</div>
 {% endfor %}
 
