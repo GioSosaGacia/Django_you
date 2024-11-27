@@ -1,0 +1,19 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+<h1>Create a new task</h1>
+
+<form method="POST">
+    {% comment %} Se utiliza para verificar que el formulario a sido creado por el propio servidor {% endcomment %}
+    {% csrf_token %}
+    
+    {% comment %} .as_p indica que estara dentro de un parrafo {% endcomment %}
+    {{form.as_p}} 
+    <button>
+        Save
+    </button>
+</form>
+
+
+{% endblock %}

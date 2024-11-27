@@ -1,12 +1,14 @@
 from django.http import HttpResponse, JsonResponse
 
 # la función render se utiliza para renderizar (generar) una respuesta HTTP que incluye contenido HTML a partir de una plantilla (template)
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Project,Task
 
 #En vez de que nos muestre un erro, haremos que cuando no encuentre un dato mande el error 404 not found importando, la cual permite obtener un objeto y si no existe envia 404
 from django.shortcuts import get_object_or_404
+#importamos forms
+from .forms import CreateNewTask
 
 #Create your views here. lo que puede ver el cliente en pantalla
 #orm interactua con la base de datos el cual ya tiene consultas predefinidas
@@ -43,7 +45,7 @@ def projects(request):
 #safe=False en JsonResponse El parámetro safe=False se utiliza para decirle a Django que puede convertir cualquier objeto Python (no solo diccionarios) a JSON.
     #return JsonResponse(projects, safe=False)
     
-    return render(request,'project.html', {
+    return render(request,'projects/project.html', {
         'projects':projects
     })
 
@@ -57,6 +59,21 @@ def tasks(request):
     
     #Ciclo for
     tasks = Task.objects.all()
-    return render(request,'tasks.html', {
+    return render(request,'task/tasks.html', {
         'tasks':tasks
     })
+    
+    
+def create_task(request):    
+    if request.method == 'GET':
+        #SHOW INTERFACE, si ce usa el metodo GET vamos a renderizar 
+        return render(request, 'task/create_task.html', {
+            'form': CreateNewTask()
+        })
+        #caso contrario -> POST: guardamos los datos
+    else:
+        Task.objects.create(title=request.POST['title'], description=request.POST['description'],project_id=2)
+        #done no lo ocupamos agregar ya que es booleano y por defecto es false
+        #redirect redirecciona los datos agregado a un url en especifico 
+        return redirect('/tasks/')  
+    

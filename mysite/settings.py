@@ -79,6 +79,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+         'OPTIONS': {
+            'timeout': 20,  # espera hasta 20 segundos antes de generar un error
+            'check_same_thread': False,
+        },
     }
 }
 

@@ -13,5 +13,6 @@ urlpatterns = [
     path('projects/', views.projects),
     #path('tasks/<int:id>', views.tasks),
     #con render
-    path('tasks/', views.tasks)
+    path('tasks/', views.tasks),
+    path('create_task/', views.create_task),
 ]
