@@ -1,0 +1,17 @@
+{% extends 'layout/base.html' %} {% block content%}
+
+<h1>Create Proyect</h1>
+
+{% comment %} De esta manera guargamos lo que contenga el formulario a traves
+del metodo POST {% endcomment %}
+<form method="POST">
+  {% comment %} Se utiliza para verificar que el formulario a sido creado por el
+  propio servidor {% endcomment %} 
+  {% csrf_token %} 
+  {% comment %} .as_p indica que estara dentro de un parrafo {% endcomment %} 
+  {% comment %} {{form.as_p}} {% endcomment %}
+  {{form}}
+  <button>Save</button>
+</form>
+
+{% endblock %}
