@@ -78,10 +78,12 @@ def create_task(request):
         # caso contrario -> POST: guardamos los datos
     else:
         Task.objects.create(
-            title=request.POST['title'], description=request.POST['description'], project_id=2)
-        # done no lo ocupamos agregar ya que es booleano y por defecto es false
-        # redirect redirecciona los datos agregado a un url en especifico
-        return redirect('/tasks/')
+            title=request.POST['title'], description=request.POST['description'], project_id=5)
+    # done no lo ocupamos agregar ya que es booleano y por defecto es false
+    # redirect redirecciona los datos agregado a un url en especifico pasando como parametro la ruta
+        # return redirect('/tasks/')
+    #A Las rutas tambien les podemos asignar un nombre con el atrinuto name dentro de la misma url y de esa manera solo usar el nombre de la ruta y no la ruta en especifico...
+        return redirect('tasks')
 
 
 def create_project(request):
@@ -93,10 +95,15 @@ def create_project(request):
     else:
         #antes de hacer la consulta projecto
         #print(request.POST)
-        #desde project hacemos la consulta y omitimos el prin de la parte superior
-        projecto = Project.objects.create(name=request.POST['name'])
-        print(projecto)
-        return render(request, 'projects/create_project.html', {
-            # retornamos el formulario a traves de un diccionario
-            'form': CreateNewProject()
-        })
+        #desde project hacemos la consulta y omitimos el print de la parte superior
+        # projecto = Project.objects.create(name=request.POST['name'])
+        #1.0omitimos que nos imprima el dato en consola y no renderizamos la misma página
+        # print(projecto)
+        # return render(request, 'projects/create_project.html', {
+        #     # retornamos el formulario a traves de un diccionario
+        #     'form': CreateNewProject()
+        # })
+        
+    #1.1 mejor hacemos el redireccionamiento a proyectos mendiante el nombre de la ruta:
+        Project.objects.create(name=request.POST['name'])
+        return redirect('projects')

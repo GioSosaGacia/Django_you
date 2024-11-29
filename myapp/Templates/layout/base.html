@@ -16,11 +16,13 @@
             <a href="/create_task">Create_task</a>
         </li>
         <li>
-            <a href="/create_project">Create_project</a>
+            {% comment %} Para agregar el nombre de la ruta y no la ruta de la siguiente manera {% endcomment %}
+            <a href="{% url 'create_project' %}">Create_project</a>
         </li>
     </ul>
 </nav>
 
+{% comment %} Indica que despues de agregar los links se espera mas información  {% endcomment %}
 {% block content %}
 
 {% endblock  %}
