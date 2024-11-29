@@ -1,5 +1,8 @@
 {% extends "layout/base.html" %}
 
+{% comment %} iNDICAMOS QUE ESTAREMOS CARGANDO CONTENIDO ESTATICO {% endcomment %}
+{% load static %}
+
 {% block content %}
 
 <!DOCTYPE html>
@@ -11,6 +14,8 @@
 <body>
     
     <h1>{{title}}</h1>
+    <center><img src="{% static 'imagen.jpg' %}" alt='' width='400px'></center>
+
     <p>¿Cómo funciona render?
         Cargar la plantilla: Django busca el archivo de plantilla (template_name) en los directorios configurados en TEMPLATES en el archivo de configuración (settings.py).
         Procesar la plantilla: Django procesa la plantilla usando el contexto que le proporcionaste. Las variables que aparecen en el contexto  son reemplazadas por sus valores.Generar la respuesta: Una vez procesada la plantilla, Django genera una respuesta HTTP con el contenido HTML resultante y la envía de vuelta al navegador del usuario.

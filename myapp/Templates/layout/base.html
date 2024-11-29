@@ -1,28 +1,47 @@
-<nav>
-    <ul>
-        <li>
-            <a href="/">Home</a>
-        </li>
-        <li>
-            <a href="/projects">Projects</a>
-        </li>
-        <li>
-            <a href="/tasks">Tasks</a>
-        </li>
-        <li>
-            <a href="/about">About</a>
-        </li>
-        <li>
-            <a href="/create_task">Create_task</a>
-        </li>
-        <li>
-            {% comment %} Para agregar el nombre de la ruta y no la ruta de la siguiente manera {% endcomment %}
-            <a href="{% url 'create_project' %}">Create_project</a>
-        </li>
-    </ul>
-</nav>
+{% comment %} para que lo cargue debe de esta load static {% endcomment %}
 
-{% comment %} Indica que despues de agregar los links se espera mas información  {% endcomment %}
-{% block content %}
+{% load static%}
 
-{% endblock  %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Define el juego de caracteres utilizado en la página -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace la página responsiva en dispositivos móviles -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Asegura la compatibilidad con versiones antiguas de Internet Explorer -->
+    <meta name="description" content="Descripción de la página para motores de búsqueda"> <!-- Descripción para SEO -->
+    <meta name="Giovanni Sosa" content="Tu Nombre o Empresa"> <!-- Autor de la página -->
+    <title>Django Projects</title> <!-- Título que aparece en la pestaña del navegador -->
+    <link rel='stylesheet' href='{% static "styles/main.css" %}'>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/projects">Projects</a>
+            </li>
+            <li>
+                <a href="/tasks">Tasks</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+            <li>
+                <a href="/create_task">Create_task</a>
+            </li>
+            <li>
+                {% comment %} Para agregar el nombre de la ruta y no la ruta de la siguiente manera {% endcomment %}
+                <a href="{% url 'create_project' %}">Create_project</a>
+            </li>
+        </ul>
+    </nav>
+    
+    {% comment %} Indica que despues de agregar los links se espera mas información  {% endcomment %}
+    {% block content %}
+    
+    {% endblock  %}
+
+</body>
+</html>
