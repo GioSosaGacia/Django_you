@@ -1,0 +1,22 @@
+
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+{% comment %} Con este mostraba el nombre de la pagína  {% endcomment %}
+{% comment %} <h1>Project detail</h1> {% endcomment %}
+
+{% comment %} Con este muestra el nombre del proyecto {% endcomment %}
+<h1>{{project}}</h1>
+
+{% comment %} mostrar las tareas mediante la creacion de un ciclo for: {% endcomment %}
+{% for task in tasks%}
+
+<div class='card'>
+    <h1>{{task.title}}</h1>
+</div>
+
+{% endfor%}
+
+
+{% endblock %}

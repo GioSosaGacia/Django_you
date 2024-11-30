@@ -26,7 +26,7 @@ def index(request):
 
 
 def hello(request, id):
-    # %s = indica que recibora un parametro o variable, %id es la variable que recibira
+    # %s = indica que recibira un parametro o variable, %id es la variable que recibira
     return HttpResponse('<h1>Hello world %s</h1>' % id)
 
 
@@ -71,7 +71,7 @@ def tasks(request):
 
 def create_task(request):
     if request.method == 'GET':
-        # SHOW INTERFACE, si ce usa el metodo GET vamos a renderizar
+        # SHOW INTERFACE, si se usa el metodo GET vamos a renderizar
         return render(request, 'task/create_task.html', {
             'form': CreateNewTask()
         })
@@ -107,3 +107,19 @@ def create_project(request):
     #1.1 mejor hacemos el redireccionamiento a proyectos mendiante el nombre de la ruta:
         Project.objects.create(name=request.POST['name'])
         return redirect('projects')
+
+
+# para crecar el detalle de cada uno de los proyectos, mediante el id nos mostrá el proyecto asociado a tal id
+def project_detail(request, id):
+    #project = Project.objects.get(id=id)
+    #usando el get_object_or_404
+    project = get_object_or_404(Project, id=id)
+    #con esta seccion me arroja todas las tareas creadas de todos los proyectos y la aplicacion seleccionada en la parte superior
+    # tasks = Task.objects.all()
+    #nos muestra las tareas relacionadas a cada aplicación mediante su id
+    tasks = Task.objects.filter(project_id=id)
+    #print(project)
+    return render(request, 'projects/detail.html', {
+        'project': project,
+        'tasks': tasks
+    })

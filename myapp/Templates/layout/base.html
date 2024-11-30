@@ -3,7 +3,7 @@
 {% load static%}
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8"> <!-- Define el juego de caracteres utilizado en la página -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace la página responsiva en dispositivos móviles -->
@@ -14,7 +14,8 @@
     <link rel='stylesheet' href='{% static "styles/main.css" %}'>
 </head>
 <body>
-    <nav>
+    
+    <nav class="navbar">
         <ul>
             <li>
                 <a href="/">Home</a>
@@ -38,10 +39,13 @@
         </ul>
     </nav>
     
+    <br>
+    <main class='container'>
     {% comment %} Indica que despues de agregar los links se espera mas información  {% endcomment %}
     {% block content %}
     
     {% endblock  %}
+    </main>
 
 </body>
 </html>

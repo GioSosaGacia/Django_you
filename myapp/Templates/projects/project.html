@@ -12,7 +12,15 @@
 
 {% comment %} lOOPS, RECORRER ELEMENTOS CON UN FOR,project es la varible que creamos para el for e in projects es la variable creada del views.py en el apartado del render     {% endcomment %}
 {% for project in projects %}
-<h2>{{project.name}}
+
+<article class='card'>
+{% comment %} mediante el href podemos acceder al atributo url -> name de la url, mediante el id nos indicara las tareas relacionadas al mismo projecto {% endcomment %}
+    <a href='{% url "project_detail" project.id %}'>
+        <h2>{{project.name}}
+    </a>
+</article>
+
+
 <div>
     <button>Delete</button>
     <button>Update</button>

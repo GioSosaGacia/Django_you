@@ -11,9 +11,11 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('', views.index, name='index'),
     path('projects/', views.projects, name='projects'),
+    path('projects/<int:id>', views.project_detail, name='project_detail'),
     #path('tasks/<int:id>', views.tasks),
     #con render
     path('tasks/', views.tasks, name='tasks'),
     path('create_task/', views.create_task, name='create_task'),
     path('create_project/', views.create_project, name='create_project'),
+    
 ]
